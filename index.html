@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air University</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+      :root {
+            --primary-color: #007bff;
+            --secondary-color: #343a40;
+            --light-color: #f8f9fa;
+            --dark-overlay: rgba(0, 0, 0, 0.6);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+    background-image: linear-gradient(var(--dark-overlay), var(--dark-overlay)), url('https://au.edu.pk/Pages/About/About_Images/visitau.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--light-color);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    padding: 0 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1; 
+    background-attachment: fixed;
+}
+section {
+    margin-top: 5rem;
+    position: relative;
+    z-index: 0; 
+}
+
+section:hover {
+    z-index: 2; 
+}
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section .btn {
+            font-size: 1.2rem;
+            padding: 0.7rem 2rem;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            transition: "background" 0.3s ease;
+        }
+
+        .hero-section .btn:hover {
+            background: #0056b3;
+        }
+
+        .about-section, .news-section, .academics-section , .img-section , .research-section {
+            background-color: var(--light-color);
+            padding: 3rem 0;
+            color: #333;
+        }
+        .event-section , .health-section , .admission-section{
+            background-color: var(--light-color);
+            padding: 3rem 0;
+            color: #333;
+        }
+        .event-section h1 , .health-section h1 , .admission-section h1{
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #007bff;
+            text-align: center;
+            justify-content: center;
+        }
+        
+
+        h2.section-title  {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        p.section-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+       
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-overlay);
+            color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay h5 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+    
+.footer a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #fff;
+}
+
+.footer .fab {
+    font-size: 1.2rem;
+}
+
+.footer .list-unstyled li {
+    margin-bottom: 8px;
+}
+
+.footer hr {
+    border-top: 1px solid #666;
+}
+
+        .img-section {
+    padding: 3rem 0;
+    position: relative;
+}
+
+.big-card {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: #333;
+    text-shadow: #333;
+}
+
+.big-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.big-card .img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    position: relative;
+    box-shadow: #333;
+    text-shadow: #333;
+    background-color: #333;
+}
+#campus-life {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0;
+}
+
+
+.carousel-indicators button {
+    background-color: #aaa;
+}
+
+.carousel-indicators .active {
+    background-color: #fff;
+}
+
+
+.carousel-item img {
+    object-fit: cover;
+    height: 500px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item.active img {
+    transform: scale(1.05);
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.carousel-caption h5 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-caption p {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+.carousel-control-prev-icon,.carousel-control-next-icon {
+    background-color: #666;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    #campus-life {
+        padding: 30px 0;
+    }
+
+    .carousel-item img {
+        height: 300px;
+    }
+
+    .carousel-caption h5 {
+        font-size: 1.5rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.9rem;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+<!-- Main Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Air University</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#News">News</a></li>
+                <li class="nav-item"><a class="nav-link" href="#academics">Academics</a></li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-light" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <!-- Center-Aligned Secondary Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="top: 56px;">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarNavSecondary">
+            <ul class="navbar-nav justify-content-center w-100 mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#academics">Students</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Faculty & Staff</a></li>
+                <li class="nav-item"><a class="nav-link" href="#Vission">Vision</a></li>
+                <li class="nav-item"><a class="nav-link" href="#event">Events</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+</nav>
+
+<!-- Hero Section -->
+<section>
+    <div class="hero-section ">
+        <h1>Air University</h1>
+        <a href="#about" class="btn btn-light">About Us</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+    <div class="container">
+        <h2 class="section-title">A Societal Mission</h2>
+        <p class="section-description" style="font-size: larger;">Air University is a prestigious institution dedicated to excellence in education, research, and community service.
+            Our mission is to nurture innovative thinkers, critical problem solvers, and leaders of tomorrow. We offer a wide range
+            of undergraduate and postgraduate programs designed to empower students with knowledge and skills in various disciplines....</p>
+        <div class="text-center">
+            <a href="index.html" class="btn btn-outline-primary">Home</a>
+        </div>
+    </div>
+</section>
+<!-- News Section -->
+<section id="News" class="news-section">
+    <div class="container text-center">
+        <h2 style="font-weight: bold; color: #007bff;">Campus News</h2>
+        <p>Stories about students, events, and innovations across the nation.</p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="col">
+                <div class="card">
+                    <img src="https://i.pinimg.com/736x/d3/d3/2b/d3d32b795f401712a08ab006ad6a4abf.jpg" class="card-img-top" alt="Health & Medicine">
+                    <div class="overlay">
+                        <h5>Health & Medicine</h5>
+                        <p>FMC welcomes you to the world of medical sciences.</p>
+                        <a href="https://fazaiamedical.edu.pk/" class="btn btn-light">View more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="https://th.bing.com/th/id/R.99068fe265ba7f59deabfd871c326961?rik=K6vF%2bw5QijXC6w&pid=ImgRaw&r=0" class="card-img-top" alt="Sports & Fitness">
+                    <div class="overlay">
+                        <h5>Sports & Fitness</h5>
+                        <p>With academics comes health of mind and body (sports week).</p>
+                        <a href="https://www.au.edu.pk/Pages/Sports/sports_introduction.aspx" class="btn btn-light">View more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="https://th.bing.com/th/id/OIP.hULbGC0MDG_JVtu54LQ70gHaD4?rs=1&pid=ImgDetMain" class="card-img-top" alt="Coding Contests">
+                    <div class="overlay">
+                        <h5>Coding Contests</h5>
+                        <p>Air 2.0 - sharpen your coding skills.</p>
+                        <a href="https://www.au.edu.pk/Pages/NewsEvents/NewsEventsDetails.aspx?id=128" class="btn btn-light">View more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="https://th.bing.com/th/id/R.f0d8b0b5c6d9b733394e7286febb089e?rik=DnMiyKvmZhgNqQ&pid=ImgRaw&r=0" class="card-img-top" alt="International Programs">
+                    <div class="overlay">
+                        <h5>International Programs</h5>
+                        <p>Watch our students study abroad.</p>
+                        <a href="https://www.au.edu.pk/pages/ORIC/oric_formal_collaboration_foreign_universities.aspx" class="btn btn-light">View more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="https://www.au.edu.pk/Pages/NewsEvents/EventGallary/111_6.jpg" class="card-img-top" alt="Social Sciences">
+                    <div class="overlay">
+                        <h5>Social Sciences</h5>
+                        <p>Debates and more debates?</p>
+                        <a href="https://au.edu.pk/pages/Faculties/AUSOM/Department/AUSOM/ausom_about.aspx" class="btn btn-light">View more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="https://www.anglican.ca/wp-content/uploads/upcoming-events.jpg" class="card-img-top" alt="Upcoming Events">
+                    <div class="overlay">
+                        <h5>Upcoming Events</h5>
+                        <p>View latest events</p>
+                        <a href="#event" class="btn btn-light">View more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <a href="https://www.au.edu.pk" class="btn btn-light">View more</a>
+    </div>
+</section>
+
+<!-- Academics Section -->
+<section id="academics" class="academics-section">
+    <div class="container text-center">
+        <h2 style="font-weight: bold; color: #007bff;">Academics</h2>
+        <p>Preparing students to make meaningful contributions to society as engaged citizens and leaders in a complex world.</p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="col">
+                <div class="card">
+                    <img src="https://motionarray-portfolio.imgix.net/preview-304275-R7XnDxUo2V-high_0016.jpg" class="card-img-top" alt="Graduation">
+                    <div class="overlay">
+                        <h5>Graduate programs</h5>
+                        <a href="https://fazaiamedical.edu.pk/" class="btn btn-light">View more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="https://th.bing.com/th/id/R.072376536552f85e43f9cc57bad54e4b?rik=fldFSmfJfornRw&riu=http%3a%2f%2fi.huffpost.com%2fgen%2f1265935%2fthumbs%2fo-COLLEGE-CLASS-facebook.jpg&ehk=ioFdwwMO5z9vF7sz%2fiTjxIophFYQ6czwuHmF8V76%2fiA%3d&risl=&pid=ImgRaw&r=0" class="card-img-top" alt="Students">
+                    <div class="overlay">
+                        <h5>undergraduate programs</h5>
+                        <a href="https://www.au.edu.pk/Pages/Sports/sports_introduction.aspx" class="btn btn-light">View more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="https://th.bing.com/th/id/R.9c814720f77704c1a979d474da712d83?rik=E5%2bh9Tv%2bPGsFxw&pid=ImgRaw&r=0" class="card-img-top" alt="Coding Contests">
+                    <div class="overlay">
+                        <h5>career counselling</h5>
+                       
+                        <a href="https://www.au.edu.pk/Pages/NewsEvents/NewsEventsDetails.aspx?id=128" class="btn btn-light">View more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container" style="text-align: center; justify-content: center;">
+        <h1 style="font-weight: bolder; color: #007bff;">School to pursue your passion in</h1> <br><br>
+        <div>
+            <a href="https://www.au.edu.pk/Pages/Faculties/Computing_AI/Computer_Science/IT_Faculty.aspx" class="btn btn-light" style="margin: 0 10px;">Computing</a>
+            <a href="https://fazaiamedical.edu.pk/" class="btn btn-light" style="margin: 0 10px;">Medicine</a>
+            <a href="https://au.edu.pk/pages/Faculties/AUSOM/Department/AUSOM/ausom_about.aspx" class="btn btn-light" style="margin: 0 10px;">Social Sciences</a>
+        </div>
+    </div>
+
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-NnGnyMcd9FHGwhkQAlR8UuC4j9A8TxSR+1dfj8lg4nJhD7/SMPsHEbTIjblBB2g+" crossorigin="anonymous"></script>
+
+</section>
+<!-- Big Overlay Card Section -->
+<section  id="Vission"   class="img-section" style="background-color: #333;">
+    <div class="container" style="background-color: #555;">
+        <div class="card big-card">
+            <img src="https://dailytimes.com.pk/assets/uploads/2018/03/15/Jinnah-768x432.jpg" class="card-img img" alt="Big Overlay Image">
+            <div class="overlay">
+                <h5>Vision</h5>
+                <p>Think a hundred times before you take a decision, but once that decision is taken, stand by it as one man. </p>
+                <a href="index.html" class="btn btn-light">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="research " class="research-section">
+   <h1 style="text-align: center; color: #007bff ;"><b>Research</b>  </h1> 
+   <p style="text-align: center; "><b> discovering vitals to our world, our health, and our intellectual life </b></p> <br><br>
+   <hr style="border: 1% solid black;">
+    <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <h1 style="text-align: center; color: #007bff ;"> 4 Institutes</b>  </h1> 
+            <p style="text-align: center; "><b> across the natio  </b></p>
+
+          </div>
+          <div class="col">
+            <h1 style="text-align: center; color: #007bff ;"><b>Library </b>  </h1>
+            <p style="text-align: center; "><b> holds over thousands of items  </b></p> 
+          </div>
+          <div class="col">
+            <h1 style="text-align: center; color: #007bff ;"><b> Admission </b>  </h1>
+            <p style="text-align: center; "><b>per year the admission rate grow 60% last checked </b></p> 
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr style="border: 1% solid black;">
+    <div class="button-container" style="padding: 10px 20px; text-align: center;">
+        <a href="" class="btn btn-light btn-lg ">explore More</a>
+    </div>
+</section>
+<section id="event" class="event-section">
+<h1 > Upcoming Events</h1> <br>
+<div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img src="https://th.bing.com/th/id/R.d756a66948c11a74fd37121a6e419e4c?rik=BxZA83CurOUPPw&riu=http%3a%2f%2fwww.bbc.co.uk%2fblogs%2flearningenglish%2fcricket_getty.jpg&ehk=J1s3rQ1P5Ih%2bb1oVfaXKecB9lATRYtuKQhLcjsZqDZA%3d&risl=&pid=ImgRaw&r=0" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" style="color: #007bff;">Sports week</h5>
+            <p class="card-text">08 november marks the dates.</p>
+            <a href="#" class="btn btn-primary">view more</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img src="https://th.bing.com/th/id/OIP.qesYzO7OqWL-B82324QygQHaEK?w=638&h=359&rs=1&pid=ImgDetMain "class="img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" style="color: #007bff;">Air nexus</h5>
+            <p class="card-text">22 nov is the date .</p>
+            <a href="#" class="btn btn-primary">register here</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img src="https://www.kindpng.com/picc/m/638-6385644_air-university-islamabad-logo-clipart-png-download-air.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" style="color: #007bff;">MOU</h5>
+            <p class="card-text">study in italy .</p>
+            <a href="#" class="btn btn-primary">view more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+   
+
+   <!--campus life section-->
+          <section id="campus-life" class="img-section" style="background-color: #333; color: #fff;">
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Campus Tour"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Student Activities"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Library Life"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://www.eticketing.pk/seatingplans/venue_325.jpg" class="d-block w-100" alt="Campus tour with students walking">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Explore the Campus</h5>
+              <p>Join guided tours to discover the best spots on campus, including scenic walkways, state-of-the-art facilities, and vibrant student hubs.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://au.edu.pk/Pages/Finance/Event_Pictures/FMWH_2.jpg" class="d-block w-100" alt="Students participating in activities">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Student Activities</h5>
+              <p>From clubs to sports, there's something for everyone. Join activities that match your interests and connect with like-minded peers.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://3.bp.blogspot.com/-ZsoWAzz2n0E/WQ7JC23XhTI/AAAAAAAAdK8/kLr0tzVNcTEqil6srTjN3w4eQv4yG2E8ACK4B/s1600/Mewar%2BUniversity%2B%253A%2BInfrastructure-794633.jpg" class="d-block w-100" alt="Library study area with students">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Library Life</h5>
+              <p>A hub for learning and collaboration. Study in quiet zones or group areas and access a vast collection of resources.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!--health care-->
+<section id="health" class="health-section">
+    <h1 > Health Care</h1> 
+    <p style="text-align: center; justify-content: center; font-weight: bolder;">Advancing human health through innovative research, education, and care</p>
+    <br>
+    
+    <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+              <img src="https://th.bing.com/th/id/R.e29d138eace2dca4a82eeb1f7b86fc2d?rik=tCHTFXqMd5hVkw&pid=ImgRaw&r=0" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title" style="color: #007bff;">FMC medicine</h5>
+                <p class="card-text">Leading a worldwide revolution in precision health through biomedical research, education, and clinical enterprises.</p>
+                <a href="https://fazaiamedical.edu.pk/" class="btn btn-primary">view more</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+              <img src="https://th.bing.com/th/id/R.e29d138eace2dca4a82eeb1f7b86fc2d?rik=tCHTFXqMd5hVkw&pid=ImgRaw&r=0"class="img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title" style="color: #007bff;">Air health care</h5>
+                <p class="card-text">Leveraging expertise and advanced technology  to deliver unparalleled care for each patient’s unique needs.</p>
+                <a href="https://fazaiamedical.edu.pk/" class="btn btn-primary">view  more</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+              <img src="https://th.bing.com/th/id/R.e29d138eace2dca4a82eeb1f7b86fc2d?rik=tCHTFXqMd5hVkw&pid=ImgRaw&r=0" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title" style="color: #007bff;">Children’s Health</h5>
+                <p class="card-text">The only health care network in the Bay Area – and one of the few in the country – exclusively dedicated to pediatric and obstetric care .</p>
+                <a href="https://fazaiamedical.edu.pk/" class="btn btn-primary">view more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="button-container" style="padding: 10px 20px; text-align: center;">
+    
+        <a href="https://fazaiamedical.edu.pk/" class="btn btn-light btn-lg ">explore More Medicine</a>
+        <hr style="border: 1% solid black;">
+    </div>
+    </section>
+
+     <section id="admission" class="admission-sectiom">
+        <h1 style="text-align: center; color: #007bff;"> Admission </h1>
+        <p style="text-align:center;" >Offering extraordinary freedom to explore, to collaborate, and to challenge yourself</p>
+        <img src="https://th.bing.com/th/id/R.732ddaf8c4a0941a40bdf16718aa41ad?rik=uWTEmEbAClQsKw&pid=ImgRaw&r=0" class="img-fluid" alt="...">
+     <h1 style="color: #007bff;">Explore the possibilities of a Air education as you map out your college journey. </h1>
+     <p> We look for distinctive students who exhibit an abundance of energy and curiosity in their classes, activities, projects, research, and lives.</p>
+    
+    
+    
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--footer-->
+<footer class="footer bg-dark text-light py-5">
+    <div class="container">
+      <div class="row">
+        
+        <!-- About Section -->
+        <div class="col-md-3">
+          <h5>About Us</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-light">Our Vision</a></li>
+            <li><a href="#" class="text-light">Our Mission</a></li>
+            <li><a href="#" class="text-light">History</a></li>
+            <li><a href="#" class="text-light">Leadership</a></li>
+          </ul>
+        </div>
+        
+        <!-- Academics Section -->
+        <div class="col-md-3">
+          <h5>Academics</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-light">Programs</a></li>
+            <li><a href="#" class="text-light">Departments</a></li>
+            <li><a href="#" class="text-light">Research</a></li>
+            <li><a href="#" class="text-light">Library</a></li>
+          </ul>
+        </div>
+        
+        <!-- Admissions Section -->
+        <div class="col-md-3">
+          <h5>Admissions</h5>
+          <ul class="list-unstyled">
+            <li><a href="#academics" class="text-light">Undergraduate</a></li>
+            <li><a href="#" class="text-light">Graduate</a></li>
+            <li><a href="#" class="text-light">International Students</a></li>
+            <li><a href="#" class="text-light">Apply Now</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact & Social Section -->
+        <div class="col-md-3">
+          <h5>Contact Us</h5>
+          <p>Air University Ave, islamabd, Pakistan</p>
+          <p>Email: airuniversity.edu.pk</p>
+          <p>Phone: 033544577</p>
+          
+          <!-- Social Media Icons -->
+          <h6>Follow Us</h6>
+          <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-light me-3"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+  
+      <!-- Divider -->
+      <hr class="my-4 text-light">
+  
+      <!-- Bottom Section -->
+      <div class="row">
+        <div class="col-md-6">
+          <p>&copy; 2024 Air University . All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#" class="text-light me-3">Privacy Policy</a>
+          <a href="#" class="text-light me-3">Terms of Service</a>
+          <a href="#" class="text-light">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+
+
+
+</body>
+</html>
